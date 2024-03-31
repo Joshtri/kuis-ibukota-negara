@@ -17,7 +17,9 @@ export const quizPage = async (req, res) => {
   try {
     totalCorrect = 0;
     await nextQuestion();
-    console.log(currentQuestion);
+
+    // console.log(currentQuestion);
+
     res.render("index.ejs", { question: currentQuestion });
   } catch (error) {
     console.error("Error rendering quiz page:", error);
@@ -31,16 +33,22 @@ export const postQuiz = async (req, res) => {
     let isCorrect = false;
     if (currentQuestion && currentQuestion.capital.toLowerCase() === answer.toLowerCase()) {
       totalCorrect++;
-      console.log(totalCorrect);
+
+      // console.log(totalCorrect);
+
       isCorrect = true;
     }
     await nextQuestion();
+
     res.render("index.ejs", {
       question: currentQuestion,
       wasCorrect: isCorrect,
       totalScore: totalCorrect,
     });
-  } catch (error) {
+
+  } 
+  
+  catch (error) {
     console.error("Error posting quiz:", error);
     res.status(500).send("Internal Server Error");
   }
