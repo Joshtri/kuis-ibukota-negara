@@ -1,4 +1,3 @@
-
 import db from "../utils/database.js"
 
 
@@ -9,7 +8,7 @@ db.query("SELECT * FROM capitals", (err, res) => {
   } else {
     quiz = res.rows;
   }
-  
+
 });
 
 let totalCorrect = 0;
