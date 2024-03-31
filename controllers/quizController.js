@@ -8,13 +8,14 @@ let currentQuestion = {};
 db.query("SELECT * FROM capitals", (err, res) => {
   if (err) {
     console.error("Error executing query", err.stack);
-  } else {
+  } else if(!err) {
     quiz = res.rows;
   }
 });
 
 export const quizPage = async (req, res) => {
   try {
+
     totalCorrect = 0;
     await nextQuestion();
 
