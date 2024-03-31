@@ -13,7 +13,7 @@ const port = 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Set path views
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(__dirname, "/views"));
 app.set("view engine", "ejs"); // Menggunakan mesin template EJS, bisa disesuaikan dengan yang lain jika Anda menggunakan yang lain
 
 //static files.
