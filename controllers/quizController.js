@@ -35,7 +35,7 @@ export const postQuiz = async (req,res)=>{
   }
 
   nextQuestion();
-  res.render("index.ejs", {
+  res.render("views/index.ejs", {
     question: currentQuestion,
     wasCorrect: isCorrect,
     totalScore: totalCorrect,
