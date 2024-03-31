@@ -1,6 +1,6 @@
 body {
   background-image: url(/images/background.jpg);
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-size: cover;
   font-family: Arial, sans-serif;
 }
@@ -9,8 +9,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  max-width: 40%;
-  height: 300px;
+  max-width: 80%; /* Menggunakan persentase untuk lebar kontainer */
   margin: 15% auto;
   padding: 20px;
   background-color: #fff;
@@ -34,7 +33,7 @@ h3 {
 
 input {
   text-align: center;
-  width: 30%;
+  width: 80%; /* Menggunakan persentase untuk lebar input */
   margin: 10px auto;
   padding: 10px;
   border: 1px solid #ccc;
@@ -108,4 +107,21 @@ button:hover {
   border-radius: 30px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s, color 0.3s;
+}
+
+/* Media queries untuk tampilan perangkat mobile */
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 90%; /* Mengurangi lebar kontainer untuk layar yang lebih kecil */
+    margin: 10% auto; /* Menyesuaikan margin untuk tampilan yang lebih kecil */
+  }
+
+  input {
+    width: 90%; /* Mengurangi lebar input untuk layar yang lebih kecil */
+  }
+
+  .restart-button {
+    font-size: 16px; /* Mengurangi ukuran font untuk layar yang lebih kecil */
+    padding: 10px 20px; /* Mengurangi padding untuk layar yang lebih kecil */
+  }
 }
