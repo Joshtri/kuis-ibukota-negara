@@ -25,8 +25,7 @@ app.set("views", path.join(__dirname, "/views"));
 app.set("view engine", "ejs"); // Menggunakan mesin template EJS, bisa disesuaikan dengan yang lain jika Anda menggunakan yang lain
 
 //static files.
-app.use(express.static("public"));
-
+app.use(express.static(__dirname + "/public"));
 
 //routes.
 app.use('/', quizRoute)
