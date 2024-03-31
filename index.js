@@ -14,7 +14,7 @@ const __dirname = path.dirname(__filename)
 import quizRoute from "./routes/quiz.js";
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT;
 
 
 // Middleware
@@ -32,6 +32,6 @@ app.use(express.static("public"));
 app.use('/', quizRoute)
 
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is running at http://localhost:${PORT}`);
 });
