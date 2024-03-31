@@ -4,22 +4,20 @@ let quiz = [];
 let totalCorrect = 0;
 let currentQuestion = {};
 
-// Mengambil data quiz dari database saat server dimulai
-db.query("SELECT * FROM capitals", (err, res) => {
-  if (err) {
-    console.error("Error executing query", err.stack);
-  } else if(!err) {
-    quiz = res.rows;
-  }
-});
-
 export const quizPage = async (req, res) => {
   try {
-
     totalCorrect = 0;
-    await nextQuestion();
 
-    // console.log(currentQuestion);
+    // Mengambil data quiz dari database
+    const result = await db.query("SELECT * FROM capitals");
+    if (result.rows.length > 0) {
+      quiz = result.rows;
+    } else {
+      console.error("Error: Quiz data is empty");
+    }
+
+    // Menentukan pertanyaan berikutnya setelah data quiz diambil
+    await nextQuestion();
 
     res.render("index.ejs", { question: currentQuestion });
   } catch (error) {
@@ -27,6 +25,7 @@ export const quizPage = async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 };
+
 
 export const postQuiz = async (req, res) => {
   try {
