@@ -5,7 +5,7 @@ const router = express.Router();
 
 
 
-router.get('/', quizPage)
+router.get('/main', quizPage)
 router.post('/submit', postQuiz)
 
 
