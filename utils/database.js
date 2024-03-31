@@ -5,12 +5,12 @@ dotenv.config();
 
 const { Pool } = pg;
 
-const pool = new Pool({
+const db = new Pool({
   connectionString: process.env.POSTGRES_URL,
 });
 
 // Coba untuk terhubung ke database
-pool.connect()
+db.connect()
   .then(client => {
     console.log('Connected to the database');
     // Lakukan operasi database di sini, jika diperlukan
@@ -21,7 +21,7 @@ pool.connect()
 });
 
 
-export default pool;
+export default db;
 // // Ekspor objek pool agar dapat digunakan di modul lain
 
 // const db = new pg.Client({
