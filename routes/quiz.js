@@ -9,6 +9,9 @@ router.get('/', quizPage)
 router.post('/submit', postQuiz)
 
 
+router.get('/test',(req,res)=>{
+    res.render('test');
+})
 export default router
 
 // module.exports = router;
